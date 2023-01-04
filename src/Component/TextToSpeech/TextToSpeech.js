@@ -21,7 +21,6 @@ const TextToSpeech = () => {
   SpeechRecognition.startListening({ continuous: true, language: "fr-FR" });
 
   useEffect(() => {
-    console.log(transcript);
     const myWord = transcript.split(" ");
     if (wordList[myWord[myWord.length - 1]] !== undefined) {
       setLastWord(wordList[myWord[myWord.length - 1]]);
