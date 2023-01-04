@@ -12,11 +12,11 @@ const TextToSpeech = () => {
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [lastWord, setLastWord] = useState("");
 
+  SpeechRecognition.startListening({ continuous: true });
+
   useEffect(() => {
-    SpeechRecognition.startListening({ continuous: true });
-    console.log(transcript);
     const myWord = transcript.split(" ");
-    if (wordList[myWord[myWord.length - 1]] != undefined) {
+    if (wordList[myWord[myWord.length - 1]] !== undefined) {
       setLastWord(wordList[myWord[myWord.length - 1]]);
     }
     if (transcript.split(" ").length >= limitWord) {
